@@ -1,7 +1,8 @@
 from selenium import webdriver
 
 
-class my_webdriver:
-    def __init__(self, browser='Chrome'):
-        if browser == 'Chrome':
-            return webdriver.chrome()
+def select_browser(browser='chrome'):
+    if browser == 'Chrome':
+        return webdriver.chrome()
+    elif browser == "firefox":
+        return webdriver.Firefox()
