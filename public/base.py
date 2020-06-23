@@ -95,7 +95,7 @@ class Page:
         element: WebElement = self.element_wait(css)
         element.click()
 
-    def element_get_text(self,css):
+    def element_get_text(self, css):
         """
         获取元素内容
         :param css:
@@ -122,9 +122,9 @@ if __name__ == '__main__':
     test.max_window()
     login_name = test.get_element(("id", "login_name"))
     login_name.send_keys("root")
-    login_password = test.get_element(("id","login_pwd"))
+    login_password = test.get_element(("id", "login_pwd"))
     login_password.send_keys("zaq12wsx")
-    login_button = test.element_wait(("test","login"))
+    login_button = test.element_wait(("id", "login"))
     login_button.click()
     #test.close()
     #test.quit()
