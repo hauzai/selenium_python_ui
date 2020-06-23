@@ -12,7 +12,7 @@ class Page:
 
     """
 
-    def __init__(self, selenium_driver, url):
+    def __init__(self, selenium_driver, url ='http://192.168.1.96:8082/passport'):
         self.driver = selenium_driver
         self.url = url
 
@@ -95,7 +95,7 @@ class Page:
         element: WebElement = self.element_wait(css)
         element.click()
 
-    def element_get_text(self, css):
+    def element_get_text(self,css):
         """
         获取元素内容
         :param css:
@@ -116,15 +116,16 @@ class Page:
 
 
 if __name__ == '__main__':
-    wb = webdriver.Chrome()
-    test = Page(wb, "http://192.168.1.96:8082/passport")
+    # wb = webdriver.Chrome()
+    wb = webdriver.Firefox()
+    test = Page(wb, "http://192.168.1.96:8082")
     test.open()
     test.max_window()
     login_name = test.get_element(("id", "login_name"))
     login_name.send_keys("root")
-    login_password = test.get_element(("id", "login_pwd"))
+    login_password = test.get_element(("id","login_pwd"))
     login_password.send_keys("zaq12wsx")
-    login_button = test.element_wait(("id", "login"))
+    login_button = test.element_wait(("id","login"))
     login_button.click()
     #test.close()
     #test.quit()
