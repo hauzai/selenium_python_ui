@@ -7,7 +7,7 @@ class MyTest(unittest.TestCase, Page):
 
     @classmethod
     def setUp(self):
-        self.driver = browser.select_browser(browser='firefox')
+        self.driver = browser.select_browser(browser='Chrome')
         Page(self.driver).max_window()
 
     @classmethod

@@ -14,10 +14,10 @@ class Login_page(Page):
     login_success_loc = ("xpath", "//*[@id='app']/section/header/ul/li[7]/div/a")
 
     # 页面元素操作
-    def login_name(self,username):
+    def login_name(self, username):
         self.element_send_keys(self.login_name_loc, username)
 
-    def login_password(self,password):
+    def login_password(self, password):
         self.element_send_keys(self.login_password_loc, password)
 
     def login_click(self):
