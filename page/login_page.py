@@ -2,6 +2,8 @@ from public import browser
 
 from public.base import Page
 
+from public.log import MyLog
+
 import logging
 
 class Login_page(Page):
@@ -37,6 +39,8 @@ class Login_page(Page):
         self.login_name(username)
         self.login_password(password)
         self.login_click()
+        my_log = MyLog()
+        my_log.debug("登录操作")
 
 
 if __name__ == '__main__':
@@ -45,6 +49,10 @@ if __name__ == '__main__':
     # test.open()
     test.user_login("root", "zaq12wsx")
     print(test.login_success_text())
-    logging.basicConfig(level=logging.DEBUG)
-    logging.warning("test-log")
+    test.close()
+    # logging.basicConfig(level=logging.DEBUG,format='%(name)s-%(filename)s-%(funcName)s')
+    # logging.info("测试日志")
     # print(test.login_error_text())
+    # my_log = MyLog()
+    # my_log.debug("测试日志")
+
