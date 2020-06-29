@@ -4,6 +4,7 @@ from selenium.common import exceptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
+import time
 
 
 class Page:
@@ -22,6 +23,8 @@ class Page:
 
     def open(self):
         self.driver.get(self.url)
+        # self.driver.implicitly_wait(5)
+        time.sleep(3)
 
     def get_element(self, css):
         """
@@ -72,7 +75,9 @@ class Page:
         """
         if self._css_check(css):
             try:
-                return WebDriverWait(self.driver, sec, 0.5).until(EC.presence_of_element_located(css), "根据条件查找不到对应元素")
+                return WebDriverWait(self.driver, sec, 0.5).until(
+                    # EC.presence_of_element_located(css), "等待后，根据条件查找不到对应元素"
+                    EC.visibility_of_element_located(css), "等待后，根据条件查找不到对应元素")
             except exceptions.TimeoutException as e:
                 print(e)
 

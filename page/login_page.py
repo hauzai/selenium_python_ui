@@ -2,6 +2,8 @@ from public import browser
 
 from public.base import Page
 
+import logging
+
 class Login_page(Page):
     """
     Login页面，继承自Page基类
@@ -38,9 +40,11 @@ class Login_page(Page):
 
 
 if __name__ == '__main__':
-    wb = browser.select_browser(browser='firefox')
+    wb = browser.select_browser(browser='Chrome')
     test = Login_page(wb, "http://192.168.1.96:8082/passport")
-    test.open()
+    # test.open()
     test.user_login("root", "zaq12wsx")
     print(test.login_success_text())
+    logging.basicConfig(level=logging.DEBUG)
+    logging.warning("test-log")
     # print(test.login_error_text())
